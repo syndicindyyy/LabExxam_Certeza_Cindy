@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (!valid) {
-      e.preventDefault(); // prevent form from submitting
-      alert(messages.join('\n')); // display all error messages
+      e.preventDefault();
+      alert(messages.join('\n'));
     }
   });
 });
