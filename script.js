@@ -1,25 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const form = document.querySelector('form');
+  const form = document.getElementById('loginForm');
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
 
   form.addEventListener('submit', function (e) {
-    let valid = true;
-    let messages = [];
+    let errors = [];
 
+    // Validation
     if (emailInput.value.trim() === '') {
-      messages.push('Email is required.');
-      valid = false;
+      errors.push('Email is required.');
     }
 
     if (passwordInput.value.trim() === '') {
-      messages.push('Password is required.');
-      valid = false;
+      errors.push('Password is required.');
     }
 
-    if (!valid) {
-      e.preventDefault();
-      alert(messages.join('\n'));
+    if (errors.length > 0) {
+      e.preventDefault();  // Prevent the form from submitting
+      alert(errors.join('\n'));
+    } else {
+      // If validation passes, it will redirect to home.html
+      window.location.href = "home.html";
     }
   });
 });
